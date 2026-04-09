@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>障害者雇用代行ビジネス：構造・批判・変革の道筋</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --ink: #0f1923;
+  --ink-light: #1e2d3d;
+  --teal: #0d6b6e;
+  --teal-light: #1a8f93;
+  --teal-pale: #e8f5f5;
+  --amber: #c8860a;
+  --amber-light: #e5a020;
+  --amber-pale: #fef6e4;
+  --red: #b83232;
+  --red-pale: #fdf0f0;
+  --green: #1a6e3c;
+  --green-pale: #edfaf3;
+  --slate: #4a5e70;
+  --slate-light: #8fa3b3;
+  --border: #d4dde5;
+  --bg: #f7f9fb;
+  --white: #ffffff;
+  --serif: 'Noto Serif JP', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========== HERO ========== */
+.hero {
+  background: var(--ink);
+  color: white;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  flex: 1;
+}
+@media (max-width: 700px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+}
+.hero-content {
+  padding: 56px 48px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--teal-light);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--teal-light);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--amber-light);
+  border-bottom: 2px solid var(--amber-light);
+  padding-bottom: 2px;
+}
+.hero-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+.hero-stats {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  text-align: center;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+}
+.hero-stat .n {
+  font-family: var(--mono);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--amber-light);
+  display: block;
+  line-height: 1.2;
+}
+.hero-stat .l {
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 3px;
+}
+.hero-visual {
+  background: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,0.05) 0px,
+    rgba(0,0,0,0.05) 1px,
+    transparent 1px,
+    transparent 20px
+  );
+}
+.hero-visual svg {
+  position: relative;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/* ========== NAV ========== */
+.nav {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 12px rgba(15,25,35,0.06);
+}
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 16px;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-btn {
+  flex-shrink: 0;
+  padding: 14px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--slate);
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-family: var(--sans);
+}
+.nav-btn:hover { color: var(--teal); }
+.nav-btn.active { color: var(--teal); border-bottom-color: var(--teal); font-weight: 700; }
+
+/* ========== LAYOUT ========== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 72px 0 52px; }
+
+.sec-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--teal);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.sec-title {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.sec-desc {
+  font-size: 15px;
+  color: var(--slate);
+  max-width: 640px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+/* ========== DIVIDER ========== */
+.divider {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ========== CARDS ========== */
+.card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(15,25,35,0.05);
+}
+.card + .card { margin-top: 16px; }
+
+/* ========== CALLOUT ========== */
+.callout {
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 20px 0;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.callout-warn { background: var(--amber-pale); border: 1px solid #e5c07a; }
+.callout-crit { background: var(--red-pale); border: 1px solid #e5a0a0; }
+.callout-info { background: var(--teal-pale); border: 1px solid #9dd4d5; }
+.callout-ok   { background: var(--green-pale); border: 1px solid #8dd5b2; }
+.callout-ico { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.callout-body { font-size: 14px; color: var(--ink-light); line-height: 1.8; }
+.callout-body strong { color: var(--ink); }
+
+/* ========== SECTION 1: 概要 ========== */
+.model-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 640px) { .model-grid { grid-template-columns: 1fr; } }
+
+.model-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(15,25,35,0.05);
+}
+.model-card-head {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.model-card-head svg { flex-shrink: 0; }
+.model-card-head .label { font-weight: 700; font-size: 15px; color: var(--ink); }
+.model-card-head .sub { font-size: 12px; color: var(--slate); margin-top: 1px; }
+.model-card-body { padding: 16px 20px; }
+.model-card-body p { font-size: 13px; color: var(--slate); line-height: 1.75; margin-bottom: 12px; }
+
+.flow-h {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.flow-node {
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+  min-width: 80px;
+  line-height: 1.4;
+}
+.flow-arr { font-size: 14px; color: var(--slate-light); flex-shrink: 0; }
+
+/* ========== SECTION 2: なぜ急拡大 ========== */
+.demand-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 700px) { .demand-cols { grid-template-columns: 1fr; } }
+
+.demand-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 24px 20px;
+  box-shadow: 0 2px 12px rgba(15,25,35,0.05);
+  position: relative;
+  overflow: hidden;
+}
+.demand-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--teal);
+}
+.demand-card .num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--teal);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.demand-card h4 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px; line-height: 1.4; }
+.demand-card p { font-size: 13px; color: var(--slate); line-height: 1.75; }
+
+.growth-visual {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 28px;
+  margin-top: 20px;
+  box-shadow: 0 2px 12px rgba(15,25,35,0.05);
+}
+.growth-visual h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.timeline-h {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.tl-col { text-align: center; flex-shrink: 0; }
+.tl-bar-wrap { height: 120px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 6px; }
+.tl-bar {
+  width: 40px;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.8s ease;
+  position: relative;
+}
+.tl-bar .tl-val {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.tl-year { font-size: 11px; color: var(--slate); font-family: var(--mono); }
+
+/* ========== SECTION 3: 批判 ========== */
+.crit-list { display: grid; gap: 16px; }
+.crit-item {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(15,25,35,0.04);
+}
+.crit-bar {
+  width: 4px;
+  flex-shrink: 0;
+}
+.crit-content { padding: 20px 24px; flex: 1; }
+.crit-content h4 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.crit-content p { font-size: 13px; color: var(--slate); line-height: 1.75; }
+.crit-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  letter-spacing: 0.05em;
+}
+
+/* ========== SECTION 4: 当事者視点 ========== */
+.voice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 640px) { .voice-grid { grid-template-columns: 1fr; } }
+
+.voice-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(15,25,35,0.04);
+}
+.voice-card .head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.voice-card .head svg { flex-shrink: 0; }
+.voice-card .head span { font-size: 13px; font-weight: 700; color: var(--ink); }
+.voice-card ul { list-style: none; padding: 0; }
+.voice-card ul li {
+  font-size: 13px;
+  color: var(--slate);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.6;
+}
+.voice-card ul li:last-child { border-bottom: none; }
+.voice-card ul li .dot { flex-shrink: 0; margin-top: 6px; }
+
+/* ========== SECTION 5: 農園 vs サテライト ========== */
+.compare-wrap {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(15,25,35,0.06);
+}
+.compare-head {
+  display: grid;
+  grid-template-columns: 180px 1fr 1fr;
+}
+.compare-head-cell {
+  padding: 16px 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.compare-head-cell:first-child { background: var(--bg); }
+.compare-head-cell:nth-child(2) { background: var(--teal); color: white; text-align: center; }
+.compare-head-cell:nth-child(3) { background: var(--ink-light); color: white; text-align: center; }
+.compare-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+.compare-row:hover { background: #fafbfc; }
+.compare-cell {
+  padding: 14px 20px;
+  font-size: 13px;
+  vertical-align: top;
+  border-right: 1px solid var(--border);
+  line-height: 1.6;
+}
+.compare-cell:first-child { font-weight: 600; color: var(--ink); background: var(--bg); }
+.compare-cell:last-child { border-right: none; }
+.compare-cell .ok { color: var(--green); font-weight: 600; }
+.compare-cell .ng { color: var(--red); font-weight: 600; }
+.compare-cell .mid { color: var(--amber); font-weight: 600; }
+@media (max-width: 640px) {
+  .compare-head { grid-template-columns: 100px 1fr 1fr; }
+  .compare-row { grid-template-columns: 100px 1fr 1fr; }
+  .compare-cell { padding: 10px 12px; font-size: 12px; }
+  .compare-head-cell { padding: 12px; font-size: 12px; }
+}
+
+/* ========== SECTION 6: 分断の本質 ========== */
+.essence-diagram {
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 36px;
+  color: white;
+  margin-bottom: 20px;
+}
+.essence-diagram h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.ed-split {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  align-items: center;
+}
+.ed-side {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+.ed-side .title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+.ed-side .items {
+  list-style: none;
+  text-align: left;
+}
+.ed-side .items li {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.ed-side .items li:last-child { border-bottom: none; }
+.ed-vs {
+  text-align: center;
+  flex-shrink: 0;
+}
+.ed-vs .vs-txt {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--amber-light);
+  display: block;
+  margin-bottom: 8px;
+}
+.ed-vs p { font-size: 11px; color: rgba(255,255,255,0.5); text-align: center; line-height: 1.5; }
+@media (max-width: 640px) {
+  .ed-split { grid-template-columns: 1fr; }
+}
+
+.perspective-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 700px) { .perspective-cards { grid-template-columns: 1fr; } }
+.persp-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(15,25,35,0.04);
+}
+.persp-card .actor {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.persp-card h4 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.persp-card p { font-size: 13px; color: var(--slate); line-height: 1.75; }
+
+/* ========== SECTION 7: どう変わるべきか ========== */
+.reform-intro {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 16px rgba(15,25,35,0.06);
+}
+.reform-intro p {
+  font-size: 15px;
+  color: var(--slate);
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+.reform-intro p:last-child { margin-bottom: 0; }
+.reform-intro strong { color: var(--ink); }
+
+.spectrum {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 16px rgba(15,25,35,0.06);
+}
+.spectrum h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+.spectrum-bar {
+  height: 10px;
+  background: linear-gradient(90deg, var(--red) 0%, var(--amber-light) 40%, var(--green) 100%);
+  border-radius: 5px;
+  margin: 8px 0 20px;
+  position: relative;
+}
+.spectrum-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.spectrum-labels .l { color: var(--red); }
+.spectrum-labels .c { color: var(--amber); text-align: center; }
+.spectrum-labels .r { color: var(--green); text-align: right; }
+.spectrum-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 640px) { .spectrum-items { grid-template-columns: 1fr; } }
+.sp-item {
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid;
+}
+.sp-item.bad  { border-color: #e5a0a0; background: var(--red-pale); }
+.sp-item.mid  { border-color: #e5c07a; background: var(--amber-pale); }
+.sp-item.good { border-color: #8dd5b2; background: var(--green-pale); }
+.sp-item .sp-label {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.sp-item.bad .sp-label  { color: var(--red); }
+.sp-item.mid .sp-label  { color: var(--amber); }
+.sp-item.good .sp-label { color: var(--green); }
+.sp-item h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.sp-item p  { font-size: 12px; color: var(--slate); line-height: 1.65; }
+
+.reform-steps {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+.reform-step {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  box-shadow: 0 2px 12px rgba(15,25,35,0.04);
+  position: relative;
+  overflow: hidden;
+}
+.reform-step::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+}
+.reform-step.actor-gov::before { background: var(--teal); }
+.reform-step.actor-biz::before { background: var(--amber); }
+.reform-step.actor-corp::before { background: var(--ink-light); }
+.reform-step.actor-all::before { background: var(--green); }
+.reform-step-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+.reform-step-body { flex: 1; }
+.reform-step-body .actor-tag {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.reform-step-body h4 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.reform-step-body p { font-size: 13px; color: var(--slate); line-height: 1.75; }
+
+/* ========== SECTION 8: KBC視点 ========== */
+.kbc-box {
+  background: var(--ink);
+  color: white;
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 24px;
+}
+.kbc-box h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.kbc-box p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+.kbc-box p em {
+  font-style: normal;
+  color: var(--amber-light);
+  font-weight: 700;
+}
+.kbc-qa {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+@media (max-width: 640px) { .kbc-qa { grid-template-columns: 1fr; } }
+.kbc-q {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 18px;
+}
+.kbc-q .q-label {
+  font-size: 10px;
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  color: var(--amber-light);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.kbc-q p { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.7; margin: 0; }
+
+/* ========== QUOTE ========== */
+.pull-quote {
+  border-left: 3px solid var(--teal);
+  padding: 16px 24px;
+  background: var(--teal-pale);
+  border-radius: 0 10px 10px 0;
+  margin: 20px 0;
+}
+.pull-quote p {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--ink-light);
+  line-height: 1.8;
+  font-style: italic;
+}
+.pull-quote .src {
+  font-size: 11px;
+  color: var(--slate);
+  margin-top: 8px;
+  font-style: normal;
+  font-family: var(--sans);
+}
+
+/* ========== DATA BADGES ========== */
+.data-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.data-badge {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  text-align: center;
+  flex: 1;
+  min-width: 130px;
+  box-shadow: 0 2px 8px rgba(15,25,35,0.04);
+}
+.data-badge .n {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 500;
+  display: block;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.data-badge .l { font-size: 12px; color: var(--slate); line-height: 1.5; }
+.data-badge .s { font-size: 10px; color: var(--slate-light); margin-top: 4px; }
+
+/* ========== ANIMATION ========== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fade-up.in { opacity: 1; transform: none; }
+.fade-up:nth-child(2) { transition-delay: 0.08s; }
+.fade-up:nth-child(3) { transition-delay: 0.16s; }
+.fade-up:nth-child(4) { transition-delay: 0.24s; }
+
+/* ========== FOOTER ========== */
+.footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.65);
+  padding: 52px 24px 36px;
+  margin-top: 72px;
+}
+.footer-inner { max-width: 960px; margin: 0 auto; }
+.footer h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: var(--mono);
+}
+.source-list { list-style: none; }
+.source-list li {
+  font-size: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  line-height: 1.6;
+}
+.source-list li a { color: var(--teal-light); text-decoration: none; }
+.source-list li a:hover { text-decoration: underline; }
+.footer-credit {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  text-align: right;
+  font-family: var(--mono);
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-eyebrow">就労移行支援スタッフ向け 深掘り解説</div>
+      <h1>障害者雇用代行ビジネス<br><em>農園型・サテライト型</em>の<br>構造と変革の論点</h1>
+      <p class="hero-sub">違法ではない。だが、問題がないわけでもない。11,000人超が関わる「代行雇用」の実態を、批判と擁護の両面から公正に解剖し、あるべき姿を考える。</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="n">46社</span>
+          <span class="l">代行事業者数<br>（2025年10月）</span>
+        </div>
+        <div class="hero-stat">
+          <span class="n">1,802社+</span>
+          <span class="l">利用企業数</span>
+        </div>
+        <div class="hero-stat">
+          <span class="n">11,141人+</span>
+          <span class="l">就業する障害者</span>
+        </div>
+        <div class="hero-stat">
+          <span class="n">2026年7月</span>
+          <span class="l">法定雇用率<br>2.7%へ引上げ</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg width="200" height="280" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Building (企業) -->
+        <rect x="20" y="60" width="70" height="90" rx="4" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+        <rect x="30" y="72" width="12" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <rect x="48" y="72" width="12" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <rect x="66" y="72" width="12" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <rect x="30" y="92" width="12" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <rect x="48" y="92" width="12" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <rect x="66" y="92" width="12" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <rect x="42" y="115" width="26" height="35" rx="2" fill="rgba(255,255,255,0.2)"/>
+        <text x="55" y="50" font-size="10" fill="rgba(255,255,255,0.6)" text-anchor="middle" font-family="sans-serif">企業</text>
+
+        <!-- Arrow down-right -->
+        <path d="M90 100 Q140 100 140 140" stroke="rgba(200,134,10,0.8)" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+        <polygon points="136,138 144,148 132,148" fill="rgba(200,134,10,0.8)"/>
+
+        <!-- Farm (農園) -->
+        <ellipse cx="140" cy="190" rx="40" ry="16" fill="rgba(26,110,60,0.25)" stroke="rgba(26,110,60,0.5)" stroke-width="1.5"/>
+        <rect x="115" y="175" width="50" height="15" fill="rgba(26,110,60,0.15)"/>
+        <path d="M130 174 Q135 162 140 174" stroke="rgba(26,200,100,0.6)" stroke-width="1.5" fill="rgba(26,150,70,0.2)"/>
+        <path d="M140 174 Q145 160 150 174" stroke="rgba(26,200,100,0.6)" stroke-width="1.5" fill="rgba(26,150,70,0.2)"/>
+        <text x="140" y="220" font-size="10" fill="rgba(255,255,255,0.6)" text-anchor="middle" font-family="sans-serif">農園・サテライト</text>
+
+        <!-- Person figures -->
+        <circle cx="127" cy="163" r="5" fill="rgba(255,255,255,0.5)"/>
+        <rect x="123" y="168" width="8" height="10" rx="2" fill="rgba(255,255,255,0.35)"/>
+        <circle cx="143" cy="163" r="5" fill="rgba(255,255,255,0.5)"/>
+        <rect x="139" y="168" width="8" height="10" rx="2" fill="rgba(255,255,255,0.35)"/>
+        <circle cx="157" cy="163" r="5" fill="rgba(255,255,255,0.5)"/>
+        <rect x="153" y="168" width="8" height="10" rx="2" fill="rgba(255,255,255,0.35)"/>
+
+        <!-- Money arrow back -->
+        <path d="M100 170 Q60 170 60 140" stroke="rgba(200,134,10,0.5)" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+        <text x="68" y="162" font-size="9" fill="rgba(200,134,10,0.8)" text-anchor="middle" font-family="sans-serif">¥¥</text>
+
+        <!-- ハローワーク -->
+        <rect x="120" y="20" width="60" height="30" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <text x="150" y="39" font-size="9" fill="rgba(255,255,255,0.5)" text-anchor="middle" font-family="sans-serif">厚労省・指針</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ========== NAV ========== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="goTo('s1')">仕組みを知る</button>
+    <button class="nav-btn" onclick="goTo('s2')">なぜ急拡大</button>
+    <button class="nav-btn" onclick="goTo('s3')">批判の正体</button>
+    <button class="nav-btn" onclick="goTo('s4')">当事者の声</button>
+    <button class="nav-btn" onclick="goTo('s5')">農園 vs サテライト</button>
+    <button class="nav-btn" onclick="goTo('s6')">本質的な問題</button>
+    <button class="nav-btn" onclick="goTo('s7')">どう変わるべきか</button>
+    <button class="nav-btn" onclick="goTo('s8')">就労移行との接点</button>
+  </div>
+</nav>
+
+<!-- ========== S1: 仕組みを知る ========== -->
+<section class="section" id="s1">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="sec-label">SECTION 01 — OVERVIEW</div>
+      <h2 class="sec-title">そもそも何をしている<br>ビジネスなのか</h2>
+      <p class="sec-desc">「障害者雇用代行ビジネス」とは、企業が自社内に障害者の働く場を用意する代わりに、外部の専門事業者が提供する農園・サテライトオフィスなどを就労場所として利用し、雇用管理も含めて丸投げする仕組みを指す。法律上は合法だが、障害者雇用促進法の理念との整合性が問われている。</p>
+    </div>
+
+    <div class="model-grid">
+      <!-- 農園型 -->
+      <div class="model-card fade-up">
+        <div class="model-card-head" style="background:#edf7f0;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="8" fill="#1a6e3c"/>
+            <path d="M12 22 Q14 14 18 22" stroke="#7de5a8" stroke-width="1.5" fill="rgba(125,229,168,0.2)"/>
+            <path d="M18 22 Q20 12 24 22" stroke="#7de5a8" stroke-width="1.5" fill="rgba(125,229,168,0.2)"/>
+            <ellipse cx="18" cy="25" rx="10" ry="4" fill="rgba(125,229,168,0.15)" stroke="#7de5a8" stroke-width="1"/>
+            <rect x="17" y="22" width="2" height="3" fill="#7de5a8"/>
+          </svg>
+          <div>
+            <div class="label">農園型</div>
+            <div class="sub">Farm-type employment proxy</div>
+          </div>
+        </div>
+        <div class="model-card-body">
+          <p>代行事業者が農園を設置・運営。企業はその農園の区画を「借りる」形で、自社が雇用した障害者をそこで就労させる。農作物の栽培・収穫が主な業務で、収穫物は社員に配布されることが多い。</p>
+          <div class="flow-h">
+            <div class="flow-node" style="background:#e8f5f0;color:#1a6e3c;border:1px solid #8dd5b2;">企業</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node" style="background:#f5f5f5;color:#4a5e70;border:1px solid #d4dde5;">初期費用<br>+月額利用料</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node" style="background:#1a6e3c;color:white;">代行事業者<br>の農園</div>
+          </div>
+          <div style="margin-top:12px;background:#edf7f0;border-radius:8px;padding:12px;font-size:12px;color:#1a6e3c;">
+            <strong>費用目安：</strong>初期費用 数百万円 ＋ 月額（利用料 約20万円 ＋ 障害者給与 11〜13万円/人）
+          </div>
+        </div>
+      </div>
+
+      <!-- サテライト型 -->
+      <div class="model-card fade-up">
+        <div class="model-card-head" style="background:#e8f0fe;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="8" fill="#1e3a5c"/>
+            <rect x="10" y="12" width="16" height="14" rx="2" fill="rgba(140,180,255,0.2)" stroke="#8cb4ff" stroke-width="1.2"/>
+            <rect x="14" y="16" width="4" height="3" rx="1" fill="#8cb4ff"/>
+            <rect x="20" y="16" width="4" height="3" rx="1" fill="#8cb4ff"/>
+            <rect x="14" y="21" width="10" height="2" rx="1" fill="rgba(140,180,255,0.5)"/>
+            <rect x="17" y="26" width="2" height="3" fill="#8cb4ff"/>
+            <rect x="14" y="29" width="8" height="1.5" rx="0.75" fill="#8cb4ff"/>
+          </svg>
+          <div>
+            <div class="label">サテライトオフィス型</div>
+            <div class="sub">Satellite-type employment proxy</div>
+          </div>
+        </div>
+        <div class="model-card-body">
+          <p>代行事業者が本社とは別の場所にサテライトオフィスを設置・運営。そこで障害者はPCを使ったデータ入力・資料作成・Webリサーチなどのオフィスワークを行う。農園型より業務の幅が広い傾向。</p>
+          <div class="flow-h">
+            <div class="flow-node" style="background:#e8f0fe;color:#1e3a5c;border:1px solid #8cb4ff;">企業</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node" style="background:#f5f5f5;color:#4a5e70;border:1px solid #d4dde5;">業務委託<br>+利用料</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node" style="background:#1e3a5c;color:white;">代行事業者<br>のオフィス</div>
+          </div>
+          <div style="margin-top:12px;background:#e8f0fe;border-radius:8px;padding:12px;font-size:12px;color:#1e3a5c;">
+            <strong>業務例：</strong>データ入力、リサーチ、文字起こし、求人掲載更新、営業メール送信など
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-warn fade-up" style="margin-top:20px;">
+      <i class="fa-solid fa-triangle-exclamation callout-ico" style="color:#c8860a;"></i>
+      <div class="callout-body">
+        <strong>法的位置づけ：</strong>この仕組みは<strong>障害者雇用促進法上は違法ではない</strong>。障害者は「企業の社員」として雇用されており、最低賃金以上の給与を受け取る。ただし2022年の法改正時に国会の附帯決議が「法定雇用率の達成のみを目的とした代行ビジネスの利用を指導すること」を厚労省に求めた。代行ビジネスを許可制にすることは法制上困難なため、厚労省は<strong>指針策定（2025年〜）</strong>による是正を進めている。
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ========== S2: なぜ急拡大 ========== -->
+<section class="section" id="s2">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="sec-label">SECTION 02 — DEMAND ANALYSIS</div>
+      <h2 class="sec-title">なぜこんなに増えたのか<br>企業が使わざるをえない構造</h2>
+      <p class="sec-desc">単純に「ずるい企業が手を抜いている」という話ではない。代行ビジネスが急拡大した背景には、企業側が本当に困っている三つの構造的な圧力がある。</p>
+    </div>
+
+    <div class="demand-cols">
+      <div class="demand-card fade-up">
+        <div class="num">PRESSURE 01</div>
+        <h4>法定雇用率の段階的引き上げ<br>＋罰則の現実化</h4>
+        <p>2024年4月に2.3%→2.5%、2026年7月には2.7%に引き上げ。達成できない企業には納付金（月額5万円/1人不足）が課され、さらに企業名の公表という社会的制裁がある。コンプライアンスリスクを回避するために「とにかく数を揃える」ニーズが生まれる。</p>
+        <div style="margin-top:12px;padding:10px;background:#f7f9fb;border-radius:6px;font-size:12px;color:#4a5e70;">
+          法定雇用率を達成できている企業：<strong style="color:#c8860a;">46.0%</strong>（未達成が54%。令和6年集計）
+        </div>
+      </div>
+      <div class="demand-card fade-up">
+        <div class="num">PRESSURE 02</div>
+        <h4>DX推進による「切り出せる仕事」の消滅</h4>
+        <p>従来、障害者雇用の定番業務だったオフィスの軽作業・清掃・印刷・書類整理などが、DX化・ペーパーレス化・コロナ禍の出社制限で激減。「業務の切り出し」ができず、雇っても仕事を与えられない企業が増えた。農園型は「業務ゼロから始められる」という解決策に見える。</p>
+        <div style="margin-top:12px;padding:10px;background:#f7f9fb;border-radius:6px;font-size:12px;color:#4a5e70;">
+          企業の雇用課題 第1位：<strong style="color:#c8860a;">「適当な仕事があるか」77.2%</strong>（厚労省調査）
+        </div>
+      </div>
+      <div class="demand-card fade-up">
+        <div class="num">PRESSURE 03</div>
+        <h4>採用市場の逼迫・<br>雇用管理ノウハウの不足</h4>
+        <p>都市部では障害者の採用は売り手市場で、募集しても応募が来ない企業が多い。また障害者雇用の経験・ノウハウがない人事担当者にとって、合理的配慮・職場定着・当事者コミュニケーションは大きな負担。代行サービスはこれらを丸ごとアウトソースできる。</p>
+        <div style="margin-top:12px;padding:10px;background:#f7f9fb;border-radius:6px;font-size:12px;color:#4a5e70;">
+          企業の課題：「ノウハウがない」<strong style="color:#c8860a;">41.7%</strong>、「採用困難」も多数
+        </div>
+      </div>
+    </div>
+
+    <!-- 増加の推移 -->
+    <div class="growth-visual fade-up">
+      <h3>代行ビジネスの急拡大（厚労省調査ベース）</h3>
+      <div style="display:flex;align-items:flex-end;gap:24px;overflow-x:auto;padding-bottom:8px;">
+        <!-- 事業者数 -->
+        <div style="flex:1;min-width:200px;">
+          <div style="font-size:12px;font-weight:700;color:#0d6b6e;margin-bottom:12px;">代行事業者数</div>
+          <div style="display:flex;align-items:flex-end;gap:8px;height:120px;">
+            <div style="text-align:center;flex:1;">
+              <div style="background:#e8f5f5;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar" data-h="35">
+                <span style="font-family:var(--mono);font-size:11px;color:#0d6b6e;">23社</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2023.3</div>
+            </div>
+            <div style="text-align:center;flex:1;">
+              <div style="background:#a8d5d6;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar" data-h="50">
+                <span style="font-family:var(--mono);font-size:11px;color:#0d6b6e;">32社</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2023.11</div>
+            </div>
+            <div style="text-align:center;flex:1;">
+              <div style="background:#3a9fa3;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar" data-h="75">
+                <span style="font-family:var(--mono);font-size:11px;color:white;">39社</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2024.11</div>
+            </div>
+            <div style="text-align:center;flex:1;">
+              <div style="background:#0d6b6e;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar" data-h="100">
+                <span style="font-family:var(--mono);font-size:11px;color:white;">46社</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2025.10</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="width:1px;background:var(--border);align-self:stretch;"></div>
+
+        <!-- 就業障害者数 -->
+        <div style="flex:1;min-width:200px;">
+          <div style="font-size:12px;font-weight:700;color:#c8860a;margin-bottom:12px;">就業する障害者数</div>
+          <div style="display:flex;align-items:flex-end;gap:8px;height:120px;">
+            <div style="text-align:center;flex:1;">
+              <div style="background:#fef6e4;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar-amber" data-h="30">
+                <span style="font-family:var(--mono);font-size:10px;color:#c8860a;">5,000+</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2023.1</div>
+            </div>
+            <div style="text-align:center;flex:1;">
+              <div style="background:#f5d88a;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar-amber" data-h="50">
+                <span style="font-family:var(--mono);font-size:10px;color:#c8860a;">7,371+</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2023.11</div>
+            </div>
+            <div style="text-align:center;flex:1;">
+              <div style="background:#e5a020;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar-amber" data-h="75">
+                <span style="font-family:var(--mono);font-size:10px;color:white;">9,355+</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2024.11</div>
+            </div>
+            <div style="text-align:center;flex:1;">
+              <div style="background:#c8860a;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar-amber" data-h="100">
+                <span style="font-family:var(--mono);font-size:10px;color:white;">11,141+</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2025.10</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="width:1px;background:var(--border);align-self:stretch;"></div>
+
+        <!-- 利用企業数 -->
+        <div style="flex:1;min-width:200px;">
+          <div style="font-size:12px;font-weight:700;color:#4a5e70;margin-bottom:12px;">利用企業数</div>
+          <div style="display:flex;align-items:flex-end;gap:8px;height:120px;">
+            <div style="text-align:center;flex:1;">
+              <div style="background:#eef0f2;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar-slate" data-h="28">
+                <span style="font-family:var(--mono);font-size:10px;color:#4a5e70;">800+</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2023.1</div>
+            </div>
+            <div style="text-align:center;flex:1;">
+              <div style="background:#c0ccd6;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar-slate" data-h="50">
+                <span style="font-family:var(--mono);font-size:10px;color:#4a5e70;">1,212+</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2023.11</div>
+            </div>
+            <div style="text-align:center;flex:1;">
+              <div style="background:#7a94a6;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar-slate" data-h="74">
+                <span style="font-family:var(--mono);font-size:10px;color:white;">1,583+</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2024.11</div>
+            </div>
+            <div style="text-align:center;flex:1;">
+              <div style="background:#4a5e70;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;" class="animated-bar-slate" data-h="100">
+                <span style="font-family:var(--mono);font-size:10px;color:white;">1,802+</span>
+              </div>
+              <div style="font-size:10px;color:#8fa3b3;margin-top:4px;">2025.10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#8fa3b3;margin-top:12px;">出典：厚労省「いわゆる障害者雇用ビジネスに係る実態把握の取組について」各回調査／アドバンスニュース2025年12月報道（2025.10末時点）</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ========== S3: 批判の正体 ========== -->
+<section class="section" id="s3">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="sec-label">SECTION 03 — CRITIQUE</div>
+      <h2 class="sec-title">批判の正体：<br>何が問題とされているのか</h2>
+      <p class="sec-desc">「代行ビジネスは悪い」という言説は多いが、何がどう問題なのかは整理されていないことが多い。批判を具体的に分解する。</p>
+    </div>
+
+    <div class="crit-list">
+      <div class="crit-item fade-up">
+        <div class="crit-bar" style="background:#b83232;"></div>
+        <div class="crit-content">
+          <div class="crit-tag" style="background:#fdf0f0;color:#b83232;">批判① 社会的孤立</div>
+          <h4>障害者が「本社から切り離された空間」に置かれる</h4>
+          <p>農園型・サテライト型のいずれも、障害者が雇用主企業の本社・職場とは物理的に隔離された空間で働く。障害のない社員との接点がほぼゼロであり、「同じ職場で共に働く」という障害者雇用の原則的な理念が空洞化する。インクルーシブな職場文化の醸成は起こらない。</p>
+        </div>
+      </div>
+      <div class="crit-item fade-up">
+        <div class="crit-bar" style="background:#b83232;"></div>
+        <div class="crit-content">
+          <div class="crit-tag" style="background:#fdf0f0;color:#b83232;">批判② 就労の質</div>
+          <h4>「雇用とは呼べない」実態：1日の大半が休憩という証言も</h4>
+          <p>農園型の場合、生産した農作物が市場に出回らず社員に無料配布されるケースが多い。これは「本当の生産活動」ではなく、障害者雇用のために仕事を作り出しているだけと批判される。2023年の共同通信報道では「1日の大半が休憩時間だった」という証言も報じられた。</p>
+        </div>
+      </div>
+      <div class="crit-item fade-up">
+        <div class="crit-bar" style="background:#c8860a;"></div>
+        <div class="crit-content">
+          <div class="crit-tag" style="background:#fef6e4;color:#c8860a;">批判③ 企業責任の放棄</div>
+          <h4>雇用主としての責任を代行事業者に丸投げ</h4>
+          <p>厚労省の調査では、利用企業が雇用する管理者を配置せず、メールやオンラインだけで勤怠管理をしているケースが確認された。障害者雇用促進法は雇用主が主体的に雇用管理責任を果たすことを求めているが、「お金を払えば全部やってくれる」という利用が後を絶たない。</p>
+        </div>
+      </div>
+      <div class="crit-item fade-up">
+        <div class="crit-bar" style="background:#c8860a;"></div>
+        <div class="crit-content">
+          <div class="crit-tag" style="background:#fef6e4;color:#c8860a;">批判④ 雇用の不安定化</div>
+          <h4>無期転換ルール回避・1年ごとの「障害者の入れ替え」</h4>
+          <p>厚労省の調査で、代行事業者が1年ごとに同一就業場所の利用企業の障害者と入れ替える方法で無期雇用転換ルール（5年で無期雇用申請権が発生）の適用を回避できると説明資料を配布しているケースが確認された。障害者が安定した雇用を得られない構造が意図的に設計されている。</p>
+        </div>
+      </div>
+      <div class="crit-item fade-up">
+        <div class="crit-bar" style="background:#4a5e70;"></div>
+        <div class="crit-content">
+          <div class="crit-tag" style="background:#f4f6f8;color:#4a5e70;">批判⑤ 能力開発の不在</div>
+          <h4>職業能力の向上・キャリア形成への道が閉ざされる</h4>
+          <p>障害者雇用の本来の目的は「障害者が能力を発揮し社会に参加すること」。農園での単純作業や固定化されたオフィス業務では、スキルアップ・キャリアアップの機会がない。就労移行支援から就職した利用者が代行先の農園やサテライトに就職した場合、その後の成長が止まるリスクがある。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-quote fade-up">
+      <p>「農園で収益性の低い農作業をさせるなど、障害者の就労能力の向上や就労促進につながらない代行事業は問題がある」</p>
+      <div class="src">— 厚生労働省「今後の障害者雇用促進制度の在り方に関する研究会」2025年</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ========== S4: 当事者の声 ========== -->
+<section class="section" id="s4">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="sec-label">SECTION 04 — STAKEHOLDER PERSPECTIVES</div>
+      <h2 class="sec-title">単純に批判できない理由：<br>当事者の複雑な現実</h2>
+      <p class="sec-desc">代行ビジネスには確かな問題があるが、だからといって「全廃すればよい」というほど単純ではない。各ステークホルダーの現実を正直に見る。</p>
+    </div>
+
+    <div class="voice-grid">
+      <!-- 障害当事者 -->
+      <div class="voice-card fade-up">
+        <div class="head">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="#1a6e3c"/>
+            <circle cx="16" cy="12" r="5" fill="rgba(255,255,255,0.9)"/>
+            <path d="M8 26c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" fill="none"/>
+          </svg>
+          <span>障害当事者・肯定的な面</span>
+        </div>
+        <ul>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#1a6e3c"/></svg></div>B型事業所（工賃月1〜2万円）より高い賃金。最低賃金以上の給与で経済的安定</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#1a6e3c"/></svg></div>通常のオフィス環境（騒音・人間関係）が苦手な方に合う就労環境</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#1a6e3c"/></svg></div>農作業が好きで積極的に選んでいる人も存在する</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#1a6e3c"/></svg></div>代行型がなければ企業雇用の機会がなかった人もいる</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#1a6e3c"/></svg></div>送迎バスなど通勤負担を軽減するサポートが整備されているケースも</li>
+        </ul>
+      </div>
+      <div class="voice-card fade-up">
+        <div class="head">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="#b83232"/>
+            <circle cx="16" cy="12" r="5" fill="rgba(255,255,255,0.9)"/>
+            <path d="M8 26c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" fill="none"/>
+          </svg>
+          <span>障害当事者・問題のある面</span>
+        </div>
+        <ul>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#b83232"/></svg></div>本人の希望・適性と無関係に農園に配置されているケースがある</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#b83232"/></svg></div>「選んでいる」のか「他に選択肢がないので選んでいる」のか判別が困難</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#b83232"/></svg></div>キャリアアップ・スキルアップの機会がなく、雇用が固定化する</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#b83232"/></svg></div>1年ごとに「入れ替え」られ、無期雇用に移行できないリスク</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#b83232"/></svg></div>雇用主企業への帰属意識が持てず、孤独感・やりがいのなさを感じる</li>
+        </ul>
+      </div>
+      <!-- 企業 -->
+      <div class="voice-card fade-up">
+        <div class="head">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="#0d6b6e"/>
+            <rect x="8" y="10" width="16" height="14" rx="2" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+            <rect x="12" y="14" width="4" height="3" rx="1" fill="rgba(255,255,255,0.7)"/>
+            <rect x="18" y="14" width="4" height="3" rx="1" fill="rgba(255,255,255,0.7)"/>
+            <rect x="13" y="24" width="6" height="1" fill="rgba(255,255,255,0.5)"/>
+          </svg>
+          <span>企業側の正直な事情</span>
+        </div>
+        <ul>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#0d6b6e"/></svg></div>法定雇用率を達成しないと納付金・企業名公表のリスク。切実な経営課題</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#0d6b6e"/></svg></div>DXで切り出せる仕事がなくなり、社内での障害者雇用場所がない</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#0d6b6e"/></svg></div>ノウハウがなく、採用・定着・配慮対応を一人の人事担当者が抱えられない</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#0d6b6e"/></svg></div>地方企業は都市部の農園・サテライトと地理的に連携しにくい</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#0d6b6e"/></svg></div>「将来的には自社内配置に移行したい」と考えている企業も一定数ある</li>
+        </ul>
+      </div>
+      <!-- 代行事業者 -->
+      <div class="voice-card fade-up">
+        <div class="head">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="#c8860a"/>
+            <path d="M10 22 Q12 12 16 22" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" fill="rgba(255,255,255,0.15)"/>
+            <path d="M16 22 Q18 10 22 22" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" fill="rgba(255,255,255,0.15)"/>
+            <ellipse cx="16" cy="24" rx="8" ry="3" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+          </svg>
+          <span>代行事業者の主張（擁護論）</span>
+        </div>
+        <ul>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#c8860a"/></svg></div>「障害者雇用代行と呼ばないでほしい。支援サービスだ」と主張する事業者も</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#c8860a"/></svg></div>農業の本場（JAと連携等）で真の農福連携を実現している事業者も存在</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#c8860a"/></svg></div>障害者一人ひとりのアセスメント・定着支援を丁寧に行っている優良事業者も</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#c8860a"/></svg></div>「企業が雇用してくれることで福祉就労より高い賃金が実現できる」</li>
+          <li><div class="dot"><svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#c8860a"/></svg></div>2023年に業界団体「日本障害者雇用促進事業者協会」を発足し、自主規律を推進</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout callout-info fade-up">
+      <i class="fa-solid fa-circle-info callout-ico" style="color:#0d6b6e;"></i>
+      <div class="callout-body">
+        <strong>就労移行支援スタッフへの問い：</strong>代行型の就職先を「一般就労」として支援した場合、その後の利用者のキャリアはどうなっているか追跡できているか？「就職できた」という事実と、「その後の成長・安定・やりがい」は別の問いである。
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ========== S5: 農園 vs サテライト ========== -->
+<section class="section" id="s5">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="sec-label">SECTION 05 — COMPARISON</div>
+      <h2 class="sec-title">農園型とサテライト型：<br>同じ「代行」でも中身は違う</h2>
+      <p class="sec-desc">「代行ビジネス」と一括りにされることが多いが、農園型とサテライトオフィス型では、就労の質・問題の性質・改善の方向性が異なる。</p>
+    </div>
+
+    <div class="compare-wrap fade-up">
+      <div class="compare-head">
+        <div class="compare-head-cell">比較項目</div>
+        <div class="compare-head-cell">農園型</div>
+        <div class="compare-head-cell">サテライトオフィス型</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">主な業務内容</div>
+        <div class="compare-cell">農作物の栽培・収穫・加工など農業作業</div>
+        <div class="compare-cell">データ入力、リサーチ、文字起こし、資料作成など</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">生産物の市場価値</div>
+        <div class="compare-cell"><span class="ng">低〜なし</span>（社員に無料配布が多い）</div>
+        <div class="compare-cell"><span class="ok">あり</span>（企業の実務に貢献できる業務が多い）</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">スキルアップの可能性</div>
+        <div class="compare-cell"><span class="ng">低い</span>（農業技術は特定の文脈でのみ活用）</div>
+        <div class="compare-cell"><span class="mid">中程度</span>（PCスキル・業務知識は汎用性あり）</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">一般就労への発展性</div>
+        <div class="compare-cell"><span class="ng">低い</span>（農業の専門職でなければキャリア継続困難）</div>
+        <div class="compare-cell"><span class="mid">やや高い</span>（業務スキルが本社への移行につながりうる）</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">本社との接点</div>
+        <div class="compare-cell"><span class="ng">ほぼなし</span>（物理的・組織的に分断）</div>
+        <div class="compare-cell"><span class="mid">限定的</span>（業務連絡はあるが人的交流は少ない）</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">障害特性との適合</div>
+        <div class="compare-cell"><span class="ok">屋外・身体的作業が合う方には向く</span></div>
+        <div class="compare-cell"><span class="ok">感覚過敏・通勤困難な方に合う面も</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">批判の主な焦点</div>
+        <div class="compare-cell">「労働」「雇用」と呼べる実態があるか</div>
+        <div class="compare-cell">雇用主の関与の薄さ・キャリア断絶</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">良質な事例の条件</div>
+        <div class="compare-cell">農福連携として実際の農業生産に貢献、本人適性確認・定着支援あり</div>
+        <div class="compare-cell">業務が企業の実務に直結、本社移行計画あり、スキルアップ機会あり</div>
+      </div>
+    </div>
+
+    <div class="callout callout-warn fade-up">
+      <i class="fa-solid fa-scale-balanced callout-ico" style="color:#c8860a;"></i>
+      <div class="callout-body">
+        <strong>重要な整理：</strong>農園型もサテライト型も、「良質な実践」と「形式だけの数合わせ」が混在している。制度として問題なのは「形式だけ」の方であり、障害特性に合った農作業を本人が選んでいるケースや、本社移行を見据えたサテライト利用は、批判の対象として十把一絡げにすべきではない。厚労省も「質の向上」を目指しており、全廃ではなく改善を求める立場にある。
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ========== S6: 本質的な問題 ========== -->
+<section class="section" id="s6">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="sec-label">SECTION 06 — ESSENCE</div>
+      <h2 class="sec-title">本質的な問題：<br>「数字の雇用」と「人の雇用」の乖離</h2>
+      <p class="sec-desc">代行ビジネスの問題は、表面的な「悪い事業者」の話ではない。法定雇用率という制度設計が生み出す、より根本的な矛盾が露わになっている。</p>
+    </div>
+
+    <div class="essence-diagram fade-up">
+      <h3>法定雇用率制度が生み出す構造的矛盾</h3>
+      <div class="ed-split">
+        <div class="ed-side">
+          <div class="title" style="color:#ff9f9f;">法定雇用率が達成する「こと」</div>
+          <ul class="items">
+            <li>障害者の「数」を雇用する</li>
+            <li>納付金を払わなくて済む</li>
+            <li>企業名の公表を回避</li>
+            <li>コンプライアンス上の安全</li>
+            <li>数字としての達成感</li>
+          </ul>
+        </div>
+        <div class="ed-vs">
+          <span class="vs-txt">≠</span>
+          <p>イコールでは<br>ない</p>
+        </div>
+        <div class="ed-side">
+          <div class="title" style="color:#9ff5c8;">障害者雇用促進法が目指す「こと」</div>
+          <ul class="items">
+            <li>障害者が能力を発揮する</li>
+            <li>職業的自立・社会参加の実現</li>
+            <li>インクルーシブな職場の形成</li>
+            <li>障害者の成長・キャリア形成</li>
+            <li>社会の多様性と活力の実現</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="perspective-cards fade-up">
+      <div class="persp-card">
+        <div class="actor" style="color:#b83232;">問題の核心</div>
+        <h4>「雇用率」という数字目標が<br>本来の目的を食いつぶす</h4>
+        <p style="font-size:13px;color:var(--slate);line-height:1.75;">制度が「何人雇っているか」を測定する以上、企業は「どんな雇い方をするか」より「何人確保するか」を優先する合理的理由を持つ。代行ビジネスはこの論理の帰結であり、制度の盲点が産んだ現象だ。</p>
+      </div>
+      <div class="persp-card">
+        <div class="actor" style="color:#c8860a;">見逃されている問い</div>
+        <h4>本人は「その雇用を<br>選べているか」</h4>
+        <p style="font-size:13px;color:var(--slate);line-height:1.75;">農園型の就労者の中に「農業がやりたいから選んだ」人がどれだけいるか。「他に選択肢がないから」「就労移行から来た就職先がここだった」という状況は、本人の主体的選択と言えるのか。</p>
+      </div>
+      <div class="persp-card">
+        <div class="actor" style="color:#0d6b6e;">就労移行支援との関係</div>
+        <h4>代行型就職先を<br>どう位置づけるか</h4>
+        <p style="font-size:13px;color:var(--slate);line-height:1.75;">就労移行支援から代行型の農園やサテライトへの就職を「一般就労」と計上することは可能だ。しかしその後、利用者のキャリアは本当に前進しているか。「就職実績」と「利用者の成長」は別の評価軸を要する。</p>
+      </div>
+    </div>
+
+    <div class="pull-quote fade-up" style="margin-top:24px;">
+      <p>農園型雇用が存在しなければ企業に雇用される機会を得られなかった方もいる。一方、農園型雇用だからこそ企業から切り離された場所で、やりがいを持てないまま長期固定されている方もいる。この現実の複雑さを直視しなければ、問題の解決策は見えない。</p>
+      <div class="src">— 本資料制作者による整理</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ========== S7: どう変わるべきか ========== -->
+<section class="section" id="s7">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="sec-label">SECTION 07 — REFORM AGENDA</div>
+      <h2 class="sec-title">どう変わればよいのか：<br>批判を超えた変革の論点</h2>
+      <p class="sec-desc">「代行は悪だから廃止」でも「企業が困っているから仕方ない」でもない。質を担保しながら、本来の目的に近づける現実的な変革の方向を整理する。</p>
+    </div>
+
+    <!-- スペクトラム -->
+    <div class="spectrum fade-up">
+      <h3>「代行型雇用」のスペクトラム：悪質から良質まで</h3>
+      <div class="spectrum-bar"></div>
+      <div class="spectrum-labels">
+        <span class="l">問題あり</span>
+        <span class="c">グレーゾーン</span>
+        <span class="r">良質な実践</span>
+      </div>
+      <div class="spectrum-items">
+        <div class="sp-item bad">
+          <div class="sp-label">要是正</div>
+          <h4>形式的「数合わせ」</h4>
+          <p>農作物が市場に出ない。1日大半が休憩。無期転換逃れのため1年ごとに入れ替え。本人の同意・適性確認なし。本社との接点ゼロ。</p>
+        </div>
+        <div class="sp-item mid">
+          <div class="sp-label">改善が必要</div>
+          <h4>実態はあるが課題あり</h4>
+          <p>業務は存在するが成長機会なし。本社移行計画がない。障害者が「選んでいる」かどうか不明確。定着支援が形式的。</p>
+        </div>
+        <div class="sp-item good">
+          <div class="sp-label">目指す姿</div>
+          <h4>本人起点の雇用</h4>
+          <p>本人が理解・選択。業務にやりがいあり。スキルアップ・本社移行の計画。企業が雇用主として主体的関与。定期的なアセスメント継続。</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;color:var(--ink);margin:28px 0 16px;" class="fade-up">変革に必要な4つのアクション</h3>
+
+    <div class="reform-steps">
+      <div class="reform-step actor-gov fade-up">
+        <div class="reform-step-icon" style="background:#e8f5f5;">
+          <svg width="22" height="22" fill="none" stroke="#0d6b6e" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        </div>
+        <div class="reform-step-body">
+          <div class="actor-tag" style="color:#0d6b6e;">国・厚労省への期待</div>
+          <h4>「質の評価」を制度に組み込む</h4>
+          <p>法定雇用率の「達成」だけでなく、雇用の質（本人の就労満足度・スキルアップ・本社移行率など）を評価・公表する仕組みが必要。指針（2025年〜）は良い第一歩だが、法的拘束力の弱さが課題。利用企業に対して「自社雇用への移行計画」の策定・報告を義務化することで、代行を「一時的な段階」に位置付けることが重要。</p>
+        </div>
+      </div>
+      <div class="reform-step actor-biz fade-up">
+        <div class="reform-step-icon" style="background:#fef6e4;">
+          <svg width="22" height="22" fill="none" stroke="#c8860a" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="reform-step-body">
+          <div class="actor-tag" style="color:#c8860a;">代行事業者への期待</div>
+          <h4>「入口支援」から「出口支援」へ：本社移行を前提とした設計</h4>
+          <p>代行事業者が農園・サテライトを「恒久的な就労場所」ではなく、「企業本社への移行を準備する場」として設計し直すことが変革の核心。就労移行支援のように「ここを卒業することが目標」という時間軸を持つべきだ。有資格者（精神保健福祉士・社会福祉士等）の配置や、定期的なキャリアアセスメントの実施も求められる。</p>
+        </div>
+      </div>
+      <div class="reform-step actor-corp fade-up">
+        <div class="reform-step-icon" style="background:#e8f0fe;">
+          <svg width="22" height="22" fill="none" stroke="#1e3a5c" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        </div>
+        <div class="reform-step-body">
+          <div class="actor-tag" style="color:#1e3a5c;">利用企業への期待</div>
+          <h4>「数合わせ」から「経営資源としての多様性」への転換</h4>
+          <p>障害者雇用を「コスト・リスク・義務」として捉えている限り、代行に頼る構造は変わらない。優良事例の企業が示しているように、障害者の特性・能力を自社の事業に活かす視点への転換が必要。代行を「入口」として活用しつつ、2〜3年で自社内雇用に移行するロードマップを雇用契約時から設定することが求められる。</p>
+        </div>
+      </div>
+      <div class="reform-step actor-all fade-up">
+        <div class="reform-step-icon" style="background:#edfaf3;">
+          <svg width="22" height="22" fill="none" stroke="#1a6e3c" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="reform-step-body">
+          <div class="actor-tag" style="color:#1a6e3c;">当事者・支援者への期待</div>
+          <h4>「選ぶ力」と「選べる情報」を保障する</h4>
+          <p>障害当事者が代行型の雇用を選ぶとき、他の選択肢（就労継続支援A型・B型・通常の一般就労）と比較した上で主体的に選べているかが問われる。就労移行支援スタッフには、代行型就職先のメリット・リスクを利用者に正直に伝え、本人の中長期のキャリアビジョンと照らし合わせた支援が求められる。「就職できた」という実績とは別に「何年後にどうなっているか」を一緒に考える関わりが重要だ。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ========== S8: 就労移行支援との接点 ========== -->
+<section class="section" id="s8">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="sec-label">SECTION 08 — FOR STAFF</div>
+      <h2 class="sec-title">就労移行支援スタッフとして：<br>代行型就職先とどう向き合うか</h2>
+    </div>
+
+    <div class="kbc-box fade-up">
+      <h3>KBCスタッフへのメッセージ</h3>
+      <p>就労移行支援から利用者が農園型・サテライト型の職場に就職することは、現実として起こりうる。それを頭ごなしに否定するのでも、数字のために肯定するのでもなく、<em>利用者の中長期のキャリアを軸に判断する眼</em>が求められる。</p>
+      <p>代行型の就職先を検討する際に確認すべきことは、「給与はいくらか」「就職できるか」だけではない。<em>「その仕事は利用者の力を伸ばすか」「2年後・5年後、その人は何者になっているか」</em>という問いを、利用者と一緒に考える関わりが支援の質を決める。</p>
+      <div class="kbc-qa">
+        <div class="kbc-q">
+          <div class="q-label">確認すべき問い ①</div>
+          <p>利用者はその就職先を「理解した上で選んでいる」か？農園型の実態（仕事内容・職場環境・キャリアパス）を正確に伝えた上での選択か？</p>
+        </div>
+        <div class="kbc-q">
+          <div class="q-label">確認すべき問い ②</div>
+          <p>その代行事業者は「本社移行計画」を持っているか？利用者のスキルアップや将来のキャリアをどう考えているか、事前に確認したか？</p>
+        </div>
+        <div class="kbc-q">
+          <div class="q-label">確認すべき問い ③</div>
+          <p>就職後の定着支援の中で、利用者から「やりがいがない」「仕事が単調すぎる」というサインが出ていないか？定期的にキャリアの振り返りができているか？</p>
+        </div>
+        <div class="kbc-q">
+          <div class="q-label">確認すべき問い ④</div>
+          <p>その就職先への就職を「就職実績」として計上することの意味を、スタッフチームで議論できているか？数字と利用者本位の支援の間に緊張感を持てているか？</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-ok fade-up">
+      <i class="fa-solid fa-compass callout-ico" style="color:#1a6e3c;"></i>
+      <div class="callout-body">
+        <strong>まとめ：代行ビジネスを見る視点</strong><br>
+        代行型雇用は「悪」でも「善」でもなく、<strong>「現時点でのギャップを埋める暫定的な仕組み」</strong>として見るのが現実的だ。重要なのは、その雇用が障害者本人の<strong>自律・成長・尊厳</strong>に資するかどうか。就労移行支援のスタッフはその問いを持ち続けながら、利用者と企業の両方に向き合う役割を担っている。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <h3>Information Sources</h3>
+    <ul class="source-list">
+      <li><a href="https://www.mhlw.go.jp/content/11704000/001087755.pdf" target="_blank">厚生労働省「いわゆる障害者雇用ビジネスに係る実態把握の取組について」（2023年）</a></li>
+      <li><a href="https://fukushishimbun.com/series06/38618" target="_blank">福祉新聞「障害者雇用代行ビジネス39社に 厚労省調査、増加も質が課題」（2025年1月）</a></li>
+      <li><a href="https://fukushishimbun.com/series06/43623" target="_blank">福祉新聞「障害者雇用代行ビジネスに指針 利用企業に報告求める」（2025年12月）</a></li>
+      <li><a href="https://toyokeizai.net/articles/-/818574" target="_blank">東洋経済オンライン「障害者雇用『代行ビジネス』と批判、農園就労の今」（2025年）</a></li>
+      <li><a href="https://jinjibu.jp/spcl/sp0008652/cl/detl/4454/" target="_blank">日本の人事部「"農園型"障害者雇用の急増の背景 批判の声があがる理由」（2023年）</a></li>
+      <li><a href="https://noufuku.or.jp/wp-content/uploads/2024/02/642fe707b6a45dcbb305f2b868b5ecf7.pdf" target="_blank">農園型障害者雇用問題研究会報告書（2024年2月）</a></li>
+      <li><a href="https://jeap.or.jp/csr/news/branch/1711090223/" target="_blank">一般社団法人日本障害者雇用促進事業者協会「報道と行政の変遷」</a></li>
+      <li><a href="https://www.mhlw.go.jp/content/11600000/000503563.pdf" target="_blank">厚生労働省「障害者のサテライトオフィス雇用推進マニュアル」（2018年）</a></li>
+      <li><a href="https://www.nikkei.com/article/DGXZQOUA26C1F0W5A121C2000000/" target="_blank">日本経済新聞「障害者雇用の代行ビジネスに指針 厚労省」（2025年11月）</a></li>
+      <li><a href="https://www.ey.com/ja_jp/insights/consulting/outlook-for-collaboration-between-agriculture-and-welfare" target="_blank">EY Japan「農福連携の展望～障がい者雇用と農業事業連携の現状と課題」（2025年）</a></li>
+    </ul>
+    <div class="footer-credit">岡村雄一郎</div>
+  </div>
+</footer>
+
+<script>
+// スクロールアニメーション
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('in');
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// NAVスクロール
+function goTo(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+const secs = document.querySelectorAll('section[id]');
+const btns = document.querySelectorAll('.nav-btn');
+const ids  = ['s1','s2','s3','s4','s5','s6','s7','s8'];
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+  btns.forEach((b, i) => b.classList.toggle('active', ids[i] === cur));
+});
+
+// バーチャートの高さをCSSで設定
+document.querySelectorAll('.animated-bar, .animated-bar-amber, .animated-bar-slate').forEach(el => {
+  const h = el.dataset.h;
+  el.style.height = '0px';
+  el.style.transition = 'height 0.8s ease';
+  el.style.minHeight = '20px';
+});
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('[data-h]').forEach(bar => {
+        const h = parseInt(bar.dataset.h);
+        bar.style.height = (h * 1.1) + 'px';
+      });
+    }
+  });
+}, { threshold: 0.3 });
+const gv = document.querySelector('.growth-visual');
+if (gv) barObs.observe(gv);
+</script>
+</body>
+</html>
